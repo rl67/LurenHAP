@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- &L(0,"*"); -->
+<barix>
+	<dallastemperatures>
+		<temp addrMapIdx="601">
+			<value>&LIO(2,"%.1F",601,5,0,8);</value>
+			<sid>&LIO(3,"",0);</sid>
+		</temp>
+		<temp addrMapIdx="602">
+			<value>&LIO(2,"%.1F",602,5,0,8);</value>
+			<sid>&LIO(3,"",1);</sid>
+		</temp>
+		<temp addrMapIdx="603">
+			<value>&LIO(2,"%.1F",603,5,0,8);</value>
+			<sid>&LIO(3,"",2);</sid>
+		</temp>
+		<temp addrMapIdx="604">
+			<value>&LIO(2,"%.1F",604,5,0,8);</value>
+			<sid>&LIO(3,"",3);</sid>
+		</temp>
+		<temp addrMapIdx="605">
+			<value>&LIO(2,"%.1F",605,5,0,8);</value>
+			<sid>&LIO(3,"",4);</sid>
+		</temp>
+		<temp addrMapIdx="606">
+			<value>&LIO(2,"%.1F",606,5,0,8);</value>
+			<sid>&LIO(3,"",5);</sid>
+		</temp>
+		<temp addrMapIdx="607">
+			<value>&LIO(2,"%.1F",607,5,0,8);</value>
+			<sid>&LIO(3,"",6);</sid>
+		</temp>
+		<temp addrMapIdx="608">
+			<value>&LIO(2,"%.1F",608,5,0,8);</value>
+			<sid>&LIO(3,"",7);</sid>
+		</temp>
+	</dallastemperatures>
+	<diInputs>
+		<di addrMapIdx="205">
+			<value>&LIO(1,"%u",205);</value>
+		</di>
+		<di addrMapIdx="206">
+			<value>&LIO(1,"%u",206);</value>
+		</di>
+	</diInputs>
+</barix>
