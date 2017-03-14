@@ -13,7 +13,7 @@ namespace FileSyst
     {
         static public void WriteEvent(string lhaEventStr)
         {
-            string m_eventFile = @"\\ALM\backup\Data\Programmering\VisualStudio\LurenHA\LurenHA\LurenHA\bin\Debug\logs\lhaEvents.log";
+            string m_eventFile = @"\\ALM\backup\Src\VS\LurenHA\LurenHAP\LurenHA\bin\Debug\logs\lhaEvents.log";            
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(m_eventFile, true))
             {
@@ -24,6 +24,7 @@ namespace FileSyst
 
         static public string[] GetEvets()
         {
+            //todo: implement FileNotFound event +++
             return System.IO.File.ReadAllLines(@"\\ALM\backup\Src\VS\LurenHA\LurenHA\LurenHA\bin\Debug\logs/lhaEvents.log");
         }
     }

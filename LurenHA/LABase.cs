@@ -190,7 +190,7 @@ namespace LABaseStuff
     }
 
     /// <summary>
-    /// LABase; 
+    /// LABase: Base class for devices. Devices to be inerited from this.
     /// </summary>
     class LABase
     {
