@@ -59,15 +59,14 @@ namespace hwBarionet
 
             if (chNo <= cNoOfDis)
             {
-                //LaBoolValue bv = (LaBoolValue)valRec;
-                var bv = valRec as LaBoolValue;
+                LaBoolValue bv = (LaBoolValue)valRec;
                 bv.FieldValue = inputValuesDis[chNo - 1].FieldValue;
                 bv.Status = 192;
             }
             else if (chNo >= cDallasTempFirstCh && chNo <= cDallasTempLastCh)
             {
                 LaRealValue rv = (LaRealValue)valRec;
-                rv.Value = inputValuesTemps[chNo-cDallasTempFirstCh].Value;
+                rv.Value = inputValuesTemps[chNo - cDallasTempFirstCh].Value;
                 rv.Status = 192;
             }
             else
