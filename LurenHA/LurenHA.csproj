@@ -75,6 +75,7 @@
     <Compile Include="Devices\Barionet100\Barionet.cs" />
     <Compile Include="Devices\Barionet100\CgiScripts.cs" />
     <Compile Include="ExtIfc\Mail.cs" />
+    <Compile Include="ExtIfc\Sms.cs" />
     <Compile Include="FileSyst\EventLog.cs" />
     <Compile Include="LABase.cs" />
     <Compile Include="LAHardware.cs" />
