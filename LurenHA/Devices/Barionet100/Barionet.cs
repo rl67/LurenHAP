@@ -85,12 +85,15 @@ namespace hwBarionet
         public string XmlFile
         {
             get { return m_xmlFile; }
-            set
-            {
+            set {
                 if (value != string.Empty)
+                {
                     m_xmlFile = value;
+                }
                 else
+                {
                     logger.Error("Empty string value for property: m_xmlFile.");
+                }
             }
         }
 
@@ -128,12 +131,14 @@ namespace hwBarionet
             string attribute;       // xml element attribute
             int ch;                 // channel number from attribute index
 
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(m_barionetUrl);
+            //!HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(m_barionetUrl);
+            WebRequest webRequest = (WebRequest)WebRequest.Create(m_barionetUrl);
             webRequest.Timeout = 7000;
 
             try
             {
-                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                //!HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+                WebResponse webResponse = (WebResponse)webRequest.GetResponse();
 
                 //
                 //Get a stream to send the web page source

@@ -19,7 +19,7 @@ namespace FileSyst
             {
                 file.WriteLine(DateTime.UtcNow.ToString("yyyy-MM-dd-HH:mm:ss.fff") + "\t" + lhaEventStr);
             }
-
+            
         }
 
         static public string[] GetEvets()

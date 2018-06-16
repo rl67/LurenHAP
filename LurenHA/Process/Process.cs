@@ -10,6 +10,7 @@ using ExtIfc;
 using FileSyst;
 using System.Collections.ObjectModel;
 
+
 namespace LAProcess
 {
     /// <summary>
@@ -19,7 +20,8 @@ namespace LAProcess
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        private bool diSewagePumpFaultold;      // Signal value in previous scan
+
+             private bool diSewagePumpFaultold;      // Signal value in previous scan
         private bool diSewagePumpRunningold;
 
         public SignalAi temp1;
@@ -56,42 +58,42 @@ namespace LAProcess
             temp1.SignalSource = "Barionet1";
             temp1.Input.ChNo = 30;
             temp1.Tag = "TT-10-0001";
-            temp1.Description = "Golv retur";
+            temp1.Description = "GolvRetur";
             temp2 = new SignalAi();
             temp2.SignalSource = "Barionet1";
             temp2.Input.ChNo = 31;
             temp2.Tag = "TT-10-0002";
-            temp2.Description = "Golvtank varmevekslar ut, til varmtvanssbereder";
+            temp2.Description = "GolvTur";
             temp3 = new SignalAi();
             temp3.SignalSource = "Barionet1";
             temp3.Input.ChNo = 32;
             temp3.Tag = "TT-10-0003";
-            temp3.Description = "Varmepumpe ut";
+            temp3.Description = "VarmepumpeUt";
             temp4 = new SignalAi();
             temp4.SignalSource = "Barionet1";
             temp4.Input.ChNo = 33;
             temp4.Tag = "TT-10-0004";
-            temp4.Description = "Varmepumpe inn";
+            temp4.Description = "VarmepumpeInn";
             temp5 = new SignalAi();
             temp5.SignalSource = "Barionet1";
             temp5.Input.ChNo = 34;
             temp5.Tag = "TT-10-0005";
-            temp5.Description = "Utetemperatur, ved varmepumpe";
+            temp5.Description = "UteTemp";
             temp6 = new SignalAi();
             temp6.SignalSource = "Barionet1";
             temp6.Input.ChNo = 35;
             temp6.Tag = "TT-10-0006";
-            temp6.Description = "Varmepumpe gass";
+            temp6.Description = "VarmepumpeGass";
             temp7 = new SignalAi();
             temp7.SignalSource = "Barionet1";
             temp7.Input.ChNo = 36;
             temp7.Tag = "TT-10-0007";
-            temp7.Description = "Tank ut";
+            temp7.Description = "TankUt";
             temp8 = new SignalAi();
             temp8.SignalSource = "Barionet1";
             temp8.Input.ChNo = 37;
             temp8.Tag = "TT-10-0008";
-            temp8.Description = "Nettvatn";
+            temp8.Description = "TankVarmevekslarUt";
 
             // Add signals to the AIsignalCollection
             AiSignals.Add(temp1);
@@ -181,6 +183,8 @@ namespace LAProcess
             AiSignals = new List<SignalAi>();
             DoSignals = new List<SignalDo>();
             //DoSignals = new ObservableCollection<SignalDo>();
+
+
         }
     }
 }

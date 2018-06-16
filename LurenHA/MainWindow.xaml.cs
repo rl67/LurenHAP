@@ -1,24 +1,13 @@
 ﻿using NLog;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.ComponentModel;
 using System.Windows.Threading;
-using System.Net.Mail;
 using LAHardware;
 using LAProcess;
 using FileSyst;
+using LAPersistence;
+
 
 
 namespace LurenHA
@@ -36,6 +25,7 @@ namespace LurenHA
         int showMode;       // Which signal type to show in data grid
         SysHardware lhaHw;
         SysProcess lhaProcess;
+        DataStorage lhaHistory;
     
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -45,6 +35,10 @@ namespace LurenHA
             try
             {
                 InitializeComponent();
+
+                // Connect to data storage
+                lhaHistory = new DataStorage();
+                lhaHistory.Connect();
 
                 // Log application start
                 logger.Info("Application started.");
@@ -88,6 +82,7 @@ namespace LurenHA
                 // Link DO to output device
                 lhaHw.AddOutputSignalToDevice(lhaProcess.doVarmekolbe.SignalSource, lhaProcess.doVarmekolbe);
 
+
                 // System Timers --------------
                 sysTimer.Start();
                 uiTimer.Start();
@@ -113,8 +108,29 @@ namespace LurenHA
                 lhaHw.ReadInputs();
 
                 lhaProcess.Logic();
+
+
+
+                var grndFloorAiDataSet = from aiSignal in lhaProcess.AiSignals
+                                         orderby aiSignal.Tag
+                                         select new { ChNo = aiSignal.Tag, Desc = aiSignal.Description, Value = aiSignal.Input.Value };
+                dgGroundFloor.ItemsSource = grndFloorAiDataSet;
+
+                foreach( var signal in grndFloorAiDataSet)
+                {
+                    lhaHistory.WriteDataToDbGolvTank(signal.Desc, signal.Value);
+                }
+
                 //lhaHw.WriteOutputs();
-                ////lhaLogger.LogIt();
+                /*
+                var grndFloorDiDataSet = from diSignal in lhaProcess.DiSignals
+                                         orderby diSignal.Tag
+                                         select new { Tag = diSignal.Tag, Desc = diSignal.Description, Value = diSignal.ValueStatusText };
+                dgGroundFloor.ItemsSource = grndFloorDiDataSet;
+                */
+                lhaHistory.WriteDataToDbSewagePump("fault", lhaProcess.DiSignals[0].Input.Value);
+                lhaHistory.WriteDataToDbSewagePump("running", lhaProcess.DiSignals[1].Input.Value);
+
             }
         }
 
