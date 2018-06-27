@@ -74,6 +74,8 @@ namespace LurenHA
                 lhaHw.AddInputSingalToDevice(lhaProcess.temp6.SignalSource, lhaProcess.temp6.HandleNewInpValue);
                 lhaHw.AddInputSingalToDevice(lhaProcess.temp7.SignalSource, lhaProcess.temp7.HandleNewInpValue);
                 lhaHw.AddInputSingalToDevice(lhaProcess.temp8.SignalSource, lhaProcess.temp8.HandleNewInpValue);
+                lhaHw.AddInputSingalToDevice(lhaProcess.temp9.SignalSource, lhaProcess.temp9.HandleNewInpValue);
+                lhaHw.AddInputSingalToDevice(lhaProcess.temp10.SignalSource, lhaProcess.temp10.HandleNewInpValue);
 
                 lhaHw.AddInputSingalToDevice(lhaProcess.diSewagePumpFault.SignalSource, lhaProcess.diSewagePumpFault.HandleNewInpValue);
                 lhaHw.AddInputSingalToDevice(lhaProcess.diSewagePumpRunning.SignalSource, lhaProcess.diSewagePumpRunning.HandleNewInpValue);
@@ -109,27 +111,8 @@ namespace LurenHA
 
                 lhaProcess.Logic();
 
-
-
-                var grndFloorAiDataSet = from aiSignal in lhaProcess.AiSignals
-                                         orderby aiSignal.Tag
-                                         select new { ChNo = aiSignal.Tag, Desc = aiSignal.Description, Value = aiSignal.Input.Value };
-                dgGroundFloor.ItemsSource = grndFloorAiDataSet;
-
-                foreach( var signal in grndFloorAiDataSet)
-                {
-                    lhaHistory.WriteDataToDbGolvTank(signal.Desc, signal.Value);
-                }
-
-                //lhaHw.WriteOutputs();
-                /*
-                var grndFloorDiDataSet = from diSignal in lhaProcess.DiSignals
-                                         orderby diSignal.Tag
-                                         select new { Tag = diSignal.Tag, Desc = diSignal.Description, Value = diSignal.ValueStatusText };
-                dgGroundFloor.ItemsSource = grndFloorDiDataSet;
-                */
-                lhaHistory.WriteDataToDbSewagePump("fault", lhaProcess.DiSignals[0].Input.Value);
-                lhaHistory.WriteDataToDbSewagePump("running", lhaProcess.DiSignals[1].Input.Value);
+                lhaHistory.WriteAiToDb(lhaProcess.AiSignals);
+                lhaHistory.WriteDiToDb(lhaProcess.DiSignals);
 
             }
         }

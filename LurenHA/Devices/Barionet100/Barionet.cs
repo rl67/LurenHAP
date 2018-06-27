@@ -35,9 +35,9 @@ namespace hwBarionet
         private const int cDiInputBase = 205;       // Barionet base address for DI inputs
         private const int cNoOfDos = 2;             // Number of digital outputs
 
-        private const int cNoOfDallasTemps = 8;     // Number of Dallas temeparature measurements
+        private const int cNoOfDallasTemps = 10;    // Number of Dallas temeparature measurements
         private const int cDallasTempFirstCh = 30;  // First Dallas temperature channel
-        private const int cDallasTempLastCh = 37;   // Last Dallas temperature channel
+        private const int cDallasTempLastCh = 39;   // Last Dallas temperature channel
         private const int cDallasTempsBase = 601;   // Barionet base address for Dallas devices
 
         // Input values

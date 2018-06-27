@@ -12,16 +12,24 @@ namespace LASignals
     /// <summary>
     /// Signal base class./// </summary>
     /// <remarks> Class holds all generic properties and functions for a signal. </remarks>
-    class Signal
+    public class Signal
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private int m_chNo;             // Channel number at the device which the signal is connected to
 
         /// <summary>
-        /// Name of the signal source, "logic" or name of the IO device supplying the signal.
+        /// Device interfacing the sensor for the signal
         /// </summary>
         public string SignalSource
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Sensor type for signal
+        /// </summary>
+        public string SensorType
         {
             get; set;
         }
@@ -50,6 +58,14 @@ namespace LASignals
         /// <summary>
         /// Signal description. /// </summary>
         public string Description
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Device interfacing the sensor
+        /// </summary>
+        public string Device
         {
             get; set;
         }
@@ -91,7 +107,7 @@ namespace LASignals
     /// <summary>
     /// SignalAi
     /// </summary>
-    class SignalAi : Signal
+    public class SignalAi : Signal
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -113,7 +129,7 @@ namespace LASignals
     /// <summary>
     /// SignalDi
     /// </summary>
-    class SignalDi : Signal
+    public class SignalDi : Signal
     {
         private static Logger loggger = LogManager.GetCurrentClassLogger();
 

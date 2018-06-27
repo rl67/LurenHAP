@@ -50,7 +50,7 @@ namespace LABaseStuff
     public class LaValue
     {
         // Properties
-        private int m_status;
+        private Int32 m_status;
         private int m_chNo;             // Channel number at the device which the signal is connected to
         private bool m_forced;          // Forced state of input signal.
 
@@ -107,7 +107,7 @@ namespace LABaseStuff
     /// <summary>
     /// LaRealValue
     /// </summary>
-    class LaRealValue : LaValue
+    public class LaRealValue : LaValue
     {
         private double m_rVal;
 

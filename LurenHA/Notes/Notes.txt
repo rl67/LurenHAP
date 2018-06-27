@@ -1,0 +1,9 @@
+
+
+Event log
+	make file path relative to application path, or have a two steps path solution.
+	Pri 1 is Alm, second is log path relative to applicaton.
+
+History
+	1) Fix the writing of status to influx, and actually fix the status it self.
+	2) DI sensor type
